@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Nav con bootstrap, se replica para todas las paginas-->
+  <header>
+    
+    <nav class="navbar navbar-expand-lg bg-danger bg-primary sticky-top shadow">
+      <div class="container">
+        <a class="navbar-brand" href="home.html">ALOJANA</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" href="home.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="anfitrion.html">Sé anfitrión</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="hospedaje.html">Hospedajes</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+
+<main>
+  <div class="portada">
+    <div class="contenido text-center">
+      <h1>ALOJANA</h1>
+      <p>Encontra el mejor hospedaje para tu mascota</p>
+
+      <!-- busqueda por filtro de lugar y fecha-->
+      <form class="row justify-content-center g-2 my-4" onsubmit="buscar(event)">
+        <div class="col-md-4">
+          <input type="text" id="region" class="form-control" placeholder="País o región" required>
+        </div>
+        <div class="col-md-3">
+          <input type="date" id="fecha" class="form-control" required>
+        </div>
+        <div class="col-md-2">
+          <button type="submit" class="btn btn-primary w-100">Buscar</button>
+        </div>
+      </form>
+
+    
+      <!-- <a href="hospedaje.html">
+        <button type="submit" class="btn btn-danger px-4">VER HOSPEDAJES</button>
+      </a> -->
+
+    </div>
+  </div>
+</main>
+
+  <!--Hospedajes destacados-->
+  <h1 class="text-center mb-4">Hospedajes destacados</h1>
+
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+    
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          <img src="img/foto.png" class="card-img-top" alt="Hospedaje 1">
+          <div class="card-body text-center">
+            <h5 class="card-title">CAMILA</h5>
+            <button type="submit" class="btn btn-danger px-4">VER MAS</button>
+          </div>
+        </div>
+      </div>
+
+     
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          <img src="img/foto.png" class="card-img-top" alt="Hospedaje 2">
+          <div class="card-body text-center">
+            <h5 class="card-title">CAMILA</h5>
+            <button type="submit" class="btn btn-danger px-4">VER MAS</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          <img src="img/foto.png" class="card-img-top" alt="Hospedaje 3">
+          <div class="card-body text-center">
+            <h5 class="card-title">CAMILA</h5>
+            <button type="submit" class="btn btn-danger px-4">VER MAS</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+<footer>
+  <div class="footer-contenido">
+    <p>&copy; 2025 ALOJANA. Todos los derechos reservados.</p>
+    <ul class="footer-links">
+    </ul>
+  </div>
+</footer>
+
+ 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
