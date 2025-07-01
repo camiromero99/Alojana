@@ -1,0 +1,387 @@
+// VARIABLES
+$color-primario: #d32f2f;
+$color-primario-hover: #b71c1c;
+$color-secundario: #e74040;
+$color-fondo: #ffebeb;
+$color-texto: #333;
+$color-footer: #414549;
+$color-footer-texto: #6c757d;
+$font-principal: Verdana, Geneva, Tahoma, sans-serif;
+
+// MIXINS
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin button-styles($bg-color, $hover-color, $font-size: 16px) {
+  background-color: $bg-color;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: $font-size;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: $hover-color;
+  }
+}
+
+// EXTEND
+%card-style {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+}
+
+// BASE
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $color-fondo;
+  font-family: $font-principal;
+}
+
+// NAVBAR
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1020;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  flex-wrap: wrap;
+
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+
+    li {
+      a {
+        text-decoration: none;
+        color: rgb(196, 36, 36);
+        font-size: 16px;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: #ffd6d6;
+        }
+      }
+    }
+  }
+
+  .nav-link {
+    color: $color-texto;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: white;
+    }
+  }
+}
+
+// BOTONES
+button {
+  @include button-styles($color-primario, $color-primario-hover);
+
+  @media (min-width: 768px) {
+    font-size: 16px;
+  }
+
+  @media (max-width: 576px) {
+    font-size: 4vw;
+  }
+}
+
+// PORTADA
+.portada,
+.portadaAnfitrion {
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  @include flex-center;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+  }
+
+  .contenido {
+    color: rgb(245, 242, 242);
+    max-width: 90%;
+    position: relative;
+    z-index: 2;
+
+    h1 {
+      font-size: 8vw;
+      margin-bottom: 16px;
+
+      @media (min-width: 768px) {
+        font-size: 48px;
+      }
+    }
+
+    p {
+      font-size: 4vw;
+      margin-bottom: 24px;
+
+      @media (min-width: 768px) {
+        font-size: 20px;
+      }
+    }
+  }
+
+  @media (max-width: 576px) {
+    background-position: top center;
+  }
+}
+
+.portada {
+  background-image: url("img/portada.jpg");
+}
+
+.portadaAnfitrion {
+  background-image: url("img/portadaAnfitrion.jpg");
+}
+
+// FORMULARIO
+.formulario-contenedor {
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.anfitrion-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+  }
+
+  button {
+    @include button-styles($color-primario, $color-primario-hover, 16px);
+  }
+}
+
+// FOOTER
+footer {
+  background-color: $color-secundario;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  margin-top: 40px;
+  font-size: 14px;
+
+  .footer-contenido {
+    max-width: 1000px;
+    margin: auto;
+  }
+
+  .footer-links {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    padding-top: 10px;
+
+    li {
+      a {
+        color: white;
+        text-decoration: none;
+        font-size: 14px;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    @media (max-width: 600px) {
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+}
+
+// FAQ
+.faq-section {
+  padding: 40px;
+  background-color: #f9f9f9;
+  font-family: Arial, sans-serif;
+
+  h2 {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .faq-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+
+    .faq-item {
+      background-color: white;
+      border-radius: 8px;
+      padding: 20px;
+      flex: 1 1 300px;
+      max-width: 400px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+      h3 {
+        margin-top: 0;
+        color: $color-texto;
+      }
+
+      p {
+        color: #555;
+      }
+    }
+  }
+}
+
+// CARDS
+.card {
+  @extend %card-style;
+
+  .card-img-top {
+    height: 200px;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+
+  .card-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+
+    @media (max-width: 576px) {
+      font-size: 18px;
+    }
+  }
+}
+
+// BOTÓN ROJO
+.btn-rojo {
+  @include button-styles(
+    $color-secundario,
+    color.adjust($color-secundario, $lightness: -10%),
+    16px
+  );
+
+  @media (max-width: 576px) {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}
+
+// LOGIN
+.contenedor-login {
+  @include flex-center;
+  min-height: 100vh;
+  background-color: #fcebea;
+
+  .card {
+    @extend %card-style;
+    background-color: white;
+    padding: 2rem;
+    max-width: 400px;
+    width: 100%;
+
+    h1 {
+      font-weight: bold;
+      font-size: 2rem;
+      color: $color-primario;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    label {
+      font-weight: 500;
+      color: #555;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      transition: border 0.2s;
+      font-size: 1rem;
+
+      &:focus {
+        border-color: $color-primario;
+        outline: none;
+      }
+    }
+
+    button.btn-primary {
+      @include button-styles($color-primario, $color-primario-hover, 1rem);
+      width: 100%;
+    }
+
+    a.btn-link {
+      color: $color-primario;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 10px;
+      text-align: center;
+      width: 100%;
+
+      &:hover {
+        text-decoration: underline;
+        color: $color-primario-hover;
+      }
+    }
+  }
+}
+
+// ANIMACIÓN
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// APLICACIÓN DE ANIMACIÓN EN .faq-item
+.faq-item {
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
